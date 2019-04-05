@@ -11,7 +11,7 @@ import AddTodo from "../components/AddTodo";
 import axios from "axios";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
     Todos,
     AddTodo
@@ -32,7 +32,10 @@ export default {
       const { title, completed } = newTodo;
 
       axios
-        .post('"https://jsonplaceholder.typicode.com/todos', {})
+        .post("https://jsonplaceholder.typicode.com/todos", {
+          title,
+          completed
+        })
         .then(res => (this.todos = [...this.todos, res.data]))
         .catch(err => console.log(err));
     }
