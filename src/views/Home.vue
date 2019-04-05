@@ -24,7 +24,7 @@ export default {
   methods: {
     deleteTodo(id) {
       axios
-        .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        .delete(`http://localhost:3000/users/${id}`)
         .then(res => (this.todos = this.todos.filter(todo => todo.id !== id)))
         .catch(err => console.log(err));
     },
@@ -32,7 +32,7 @@ export default {
       const { title, completed } = newTodo;
 
       axios
-        .post("https://jsonplaceholder.typicode.com/todos", {
+        .post("http://localhost:3000/users", {
           title,
           completed
         })
@@ -42,7 +42,7 @@ export default {
   },
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=5")
+      .get("http://localhost:3000/users")
       .then(res => (this.todos = res.data))
       .catch(err => console.log(err));
   }
@@ -64,7 +64,7 @@ body {
 .btn {
   display: inline-block;
   border: none;
-  background: #555;
+  background: #333;
   color: #fff;
   padding: 7px 20px;
   cursor: pointer;
